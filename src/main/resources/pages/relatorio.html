@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Clientes</title>
+    <link rel="stylesheet" href="../css/lista.css">
+</head>
+
+<body>
+    <button id="painel-acad" onclick="window.location.href='/painel-acad'">Conta</button>
+    <button id="logout" onclick="window.location.href='/logout'">Logout</button>
+
+    <header></header>
+    <span id="renda-total">Renda total: </span>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+            </tr>
+        </thead>
+        <tbody id="academias-table-body"></tbody>
+    </table>
+
+    <script>
+        function carregarRendaTotal() {
+            fetch('/api/academia-logado/preco-final')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao carregar a renda total');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Atualiza o conteúdo do span com a renda total
+                    document.getElementById('renda-total').textContent = 'Renda total: R$ ' + data.toFixed(2);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+
+        fetch('/api/controle')
+            .then(response => response.json())
+            .then(clientes => {
+                const tableBody = document.getElementById('academias-table-body');
+                clientes.forEach(client => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${client.nome || 'N/A'}</td>
+                        <td>${client.cpf || 'N/A'}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const tableBody = document.getElementById('academias-table-body');
+                tableBody.innerHTML = '<tr><td colspan="4">Falha ao carregar clientes.</td></tr>';
+            });
+
+        window.onload = function () {
+            carregarRendaTotal();
+        };
+    </script>
+</body>
+
+</html>

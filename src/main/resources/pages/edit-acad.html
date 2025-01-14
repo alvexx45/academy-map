@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Dados da Academia</title>
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+
+<body>
+    <div class="container">
+        <form id="edit-academia-form" enctype="multipart/form-data"> <!-- Adicionei o enctype -->
+            <label for="nomeAcademia">Nome:</label>
+            <input type="text" id="nomeAcademia" name="nomeAcademia" required><br>
+
+            <label for="localizacao">Localização:</label>
+            <input type="text" id="localizacao" name="localizacao" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required><br>
+
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" required><br>
+
+            <label for="precoAula">Preço por Dia:</label>
+            <input type="text" id="precoAula" name="precoAula"><br><br>
+
+            <label for="fotoPerfil">Foto de Perfil (URL):</label>
+            <input type="text" id="fotoPerfil" name="fotoPerfil"><br><br>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+
+    <script>
+        function fetchAcademiaLogado() {
+            fetch('/api/academia-logado')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao buscar dados da academia");
+                    }
+                    return response.json();
+                })
+                .then(academia => {
+                    document.getElementById('nomeAcademia').value = academia.nomeAcademia;
+                    document.getElementById('localizacao').value = academia.localizacao;
+                    document.getElementById('email').value = academia.email;
+                    document.getElementById('senha').value = academia.senha;
+                    document.getElementById('cnpj').value = academia.cnpj;
+                    document.getElementById('precoAula').value = academia.precoAula;
+                    document.getElementById('fotoPerfil').value = academia.fotoPerfil;
+                })
+                .catch(error => {
+                    console.error("Erro:", error);
+                });
+        }
+
+        document.getElementById('edit-academia-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const acadData = {
+                nomeAcademia: formData.get('nomeAcademia'),
+                localizacao: formData.get('localizacao'),
+                email: formData.get('email'),
+                senha: formData.get('senha'),
+                cnpj: formData.get('cnpj'),
+                precoAula: formData.get('precoAula'),
+                fotoPerfil: formData.get('fotoPerfil')
+            }
+
+            fetch('/api/atualizar-academia', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(acadData)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = "/painel-acad";
+                    } else {
+                        alert("Erro ao atualizar academia");
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro:", error);
+                });
+        });
+
+        window.onload = fetchAcademiaLogado;
+    </script>
+
+</body>
+
+</html>

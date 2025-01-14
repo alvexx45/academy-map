@@ -1,0 +1,625 @@
+body {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0 auto !important;
+}
+
+
+/* /mnt/data/ti_project/ti/ti-1/css/global.css */
+
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #FFC107;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Novo CSS do Header */
+header,
+header * {
+    font-family: var(--bs-font-sans-serif);
+}
+
+/*IMAGEM FRASE*/
+.conteudo {
+    color: #FFCB05;
+    position: absolute;
+    top: 40%;
+    left: 8%;
+    transform: translatev(-50%);
+}
+
+
+
+
+.title {
+    font-size: 30px;
+    font-style: italic;
+    font-weight: bolder;
+    color: #EDEDED;
+    /* Define a cor do texto como branca */
+    text-decoration: none;
+    /* Remove qualquer decoração de texto, como sublinhado */
+}
+
+/*Academy map*/
+.main {
+    font-style: italic;
+    font-size: 80px;
+    font-weight: 900;
+    margin: 2px 0 30px;
+    line-height: 30px;
+    font-family: 'Anton', sans-serif;
+}
+
+/*FIM IMAGEM FRASE*/
+
+/*BOTAO CADASTRO*/
+.crie {
+    color: #FFDB57;
+    text-decoration: none;
+    padding: 10px 25px;
+    background: transparent;
+    border: 1px solid #FFDB57;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+
+}
+
+/*BOTAO CADASTRO*/
+
+
+#conteiner {
+    max-width: 400px;
+    width: 100%;
+    padding: 30px;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*imagem de fundo*/
+.one {
+    position: relative;
+    /* Necessário para o posicionamento do pseudo-elemento */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/capa.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.one::before {
+    content: "";
+    /* Necessário para criar o pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Adiciona um filtro de cor cinza com opacidade */
+    filter: grayscale(100%);
+    /* Aplica o filtro de escala de cinza */
+    pointer-events: none;
+    /* Garante que os eventos do mouse passem pelo pseudo-elemento */
+}
+
+/*imagem de fundo*/
+
+
+.cor_primaria {
+    background-color: #002b53;
+}
+
+.cor_botao {
+    font-family: var(--bs-font-sans-serif);
+    background-color: rgb(177, 83, 83);
+    color: white;
+}
+
+.cor_botao:hover {
+    background-color: rgb(150, 0, 0);
+    /* Cor mais escura para o estado hover */
+    color: whitesmoke;
+}
+
+
+button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darken(var(--secondary-color), 10%);
+}
+
+#hero {
+    background-image: url('hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+    width: 300px;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Favorito*/
+
+.favorito img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.favorito button {
+    margin-left: auto;
+}
+
+
+.favorito h1 {
+    /*texto "academias favoritas"*/
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.favorito ul {
+    /*bloco de favorito de ponta a ponta*/
+    list-style-type: none;
+    padding: 0;
+}
+
+.favorito ul li {
+    /*Alterando cabeçalho*/
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.favorito ul li img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 8px;
+    background-color: #e0e0e0;
+}
+
+.favorito ul li div {
+    flex: 1;
+}
+
+.favorito ul li div p {
+    margin: 0;
+}
+
+.favorito ul li button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.favorito ul li button:hover {
+    background-color: darkred;
+}
+
+
+
+/*PAGINA DE LOGIN ESCOLHA */
+
+body {
+    background: url('/img/atletaLogin.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    color: #353d44;
+}
+
+.escolhaLoginRegistro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 1;
+}
+
+.caixaLoginRegistro {
+    background: #FFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    /* Aumentado para caixa maior */
+}
+
+.botao {
+    display: inline-block; /* Para que o padding e margin funcionem corretamente */
+    background-color: #FFCB05; /* Cor de fundo */
+    color: #11296B; /* Cor do texto */
+    border: none; /* Remove bordas padrão */
+    border-radius: 5px; /* Arredonda os cantos */
+    padding: 10px 30px; /* Espaçamento interno */
+    font-size: 18px; /* Tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+    text-decoration: none; /* Remove o sublinhado do link */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: background-color 0.3s, transform 0.2s; /* Efeitos de transição */
+    margin: 10px 0; /* Margem para espaçamento vertical */
+}
+
+
+/*como deseja logar*/
+button {
+    width: 120px;
+    padding: 10px;
+    background-color: #0d4c92;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #FFC107;
+}
+
+/* Estilo para todos os botões */
+.botoes a.botao {
+    background-color: #FFCB05; /* Cor de fundo */
+    color: #11296B; /* Cor do texto */
+    border: none; /* Remove bordas padrão */
+    border-radius: 8px; /* Bordas arredondadas */
+    margin-bottom: 5px ;
+    padding: 15px 20px; /* Espaçamento interno */
+    font-size: 18px; /* Tamanho da fonte */
+    text-decoration: none; /* Remove underline do link */
+    transition: background-color 0.3s, transform 0.2s; /* Efeito de transição */
+    width: 100%; /* Faz com que os botões ocupem toda a largura disponível */
+    display: inline-block; /* Para que funcione com o padding e as bordas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Efeito hover para todos os botões */
+.botoes a.botao:hover {
+    background-color: #FFC107; /* Cor ao passar o mouse */
+    transform: scale(1.05); /* Aumenta um pouco o botão */
+}
+
+/* Estilo para o botão "Entrar" no popup */
+.popup_content .botao {
+    background-color: #11296B; /* Cor de fundo diferente */
+    color: #FFF; /* Cor do texto branco */
+}
+
+/* Efeito hover para o botão "Entrar" no popup */
+.popup_content .botao:hover {
+    background-color: #0d4c92; /* Cor ao passar o mouse */
+}
+
+/* Estilo para os botões de login como usuário e academia */
+.caixaLoginRegistro .botoes a.botao:nth-child(1) {
+    background-color: #FFCB05; /* Cor de fundo */
+}
+
+.caixaLoginRegistro .botoes a.botao:nth-child(2) {
+    background-color: #11296B; /* Cor de fundo diferente */
+    color: #FFF; /* Cor do texto branco */
+}
+
+.caixaLoginRegistro .botoes a.botao:nth-child(2):hover {
+    background-color: #0d4c92; /* Cor ao passar o mouse */
+}
+
+
+.popup{
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.popup_content{
+   
+    height: 400px;
+    width: 700px;
+    background: white ;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+input{
+    margin: 20px auto;
+    display: block;
+    width: 50%;
+    padding: 8%;
+    border: 1px solid gray;
+}
+.close {
+    position: absolute;
+    top: 10px; /* Ajuste conforme necessário */
+    right: 10px; /* Ajuste conforme necessário */
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+}
+/*PAGINA DE LOGIN FIM*/
+
+/*PAGINA DE LOGIN ACADEMIA*/
+body {
+    background-color: #f8f9fa;
+    /* Cor de fundo suave */
+}
+
+.caixa-login {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    /* Espaço interno da caixa */
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    /* Largura máxima da caixa */
+}
+
+.caixa-login h1 {
+    color: #11296B;
+    /* Cor do título */
+    margin-bottom: 30px;
+    /* Espaço abaixo do título */
+}
+
+.btn-warning {
+    background-color: #FFCB05;
+    /* Cor do botão */
+    color: #11296B;
+    /* Cor do texto do botão */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    /* Espaçamento interno do botão */
+}
+
+.btn-warning:hover {
+    background-color: #FFC107;
+    /* Cor ao passar o mouse */
+}
+
+/*PAGINA DE LOGIN ACADEMIA*/
+/*PAGINA DE LOGIN USER*/
+body {
+    background-color: #f8f9fa;
+    /* Cor de fundo suave */
+}
+
+.caixa-login {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    /* Espaço interno da caixa */
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    /* Largura máxima da caixa */
+}
+
+.caixa-login h1 {
+    color: #11296B;
+    /* Cor do título */
+    margin-bottom: 30px;
+    /* Espaço abaixo do título */
+}
+
+.btn-warning {
+    background-color: #FFCB05;
+    /* Cor do botão */
+    color: #11296B;
+    /* Cor do texto do botão */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    /* Espaçamento interno do botão */
+}
+
+.btn-warning:hover {
+    background-color: #FFC107;
+    /* Cor ao passar o mouse */
+}
+
+/*PAGINA DE LOGIN USER*/
+
+/* Botão "Voltar ao início" */
+#nav-start {
+    background-color: #FFCB05;
+    /* Cor de fundo do botão */
+    border-radius: 8px;
+    /* Borda arredondada */
+}
+
+#nav-start .nav-link {
+    color: #11296B;
+    /* Cor do texto */
+    padding: 10px 20px;
+    /* Reduzido para menor tamanho */
+    border-radius: 8px;
+    /* Arredondamento consistente */
+    font-size: 16px;
+    /* Tamanho da fonte */
+}
+
+#nav-start:hover {
+    background-color: #FFCB05;
+    /* Cor de fundo no hover (não muda) */
+}
+
+#nav-start .nav-link:hover {
+    color: #11296B;
+    /* Cor do texto no hover (não muda) */
+    text-decoration: none;
+    /* Remove sublinhado, se houver */
+}
+
+
+/* Botão "Voltar ao início" */
+
+
+/* Ajusta a cor de fundo e a altura do header */
+.navbar {
+    background-color: #00509D;
+    /* Azul da paleta */
+    padding: 0.5rem 1rem;
+    /* Ajusta a altura do header */
+    border-bottom: 1px solid #00509D;
+    /* Linha inferior, se necessário */
+}
+
+/* header geral */
+/* Ajusta a cor de fundo e a altura do header */
+.navbar {
+    background-color: #00509D;
+    /* Azul da paleta */
+    padding: 0.25rem 1rem;
+    /* Reduz o padding para diminuir a altura do header */
+    border-bottom: 1px solid #00509D;
+    /* Linha inferior, se necessário */
+    height: 60px;
+    /* Define uma altura fixa para o header */
+}
+
+/* Ajusta a altura do logo */
+/* Ajusta a cor de fundo e a altura do header */
+.navbar {
+    background-color: #00509D;
+    /* Azul da paleta */
+    padding: 0.25rem 1rem;
+    /* Reduz o padding para diminuir a altura do header */
+    border-bottom: 1px solid #00509D;
+    /* Linha inferior, se necessário */
+    height: 60px;
+    /* Define uma altura fixa para o header */
+}
+
+
+.title {
+    margin-left: 100px;
+
+
+
+}
+/* Ajusta a altura do logo */
+.title img {
+    height: 40px;
+    width: 50px;
+    /* Ajusta a altura do logo para caber melhor no header reduzido */
+}
+
+/* Ajusta a cor do texto dos links do header */
+.navbar-nav .nav-link {
+    color: #E0E0E0;
+    /* Cor cinza claro para o texto */
+    font-size: 0.875rem;
+    /* Reduz o tamanho da fonte dos links */
+}
+
+/* Ajusta o estilo do link do botão "Entrar" */
+.nav-item.bg-warning .nav-link {
+    background-color: #FFCB05;
+    /* Amarelo da paleta */
+    color: #E0E0E0;
+    /* Cor cinza claro para o texto */
+    border-radius: 0.25rem;
+    /* Borda arredondada */
+}
+
+/* Ajusta o padding do botão de navegação */
+.navbar-toggler {
+    background-color: #FFF;
+    /* Fundo branco para o botão de navegação */
+}
+
+/* Ajusta o tamanho dos ícones */
+.nav-link i {
+    font-size: 1.25rem;
+    /* Ajusta o tamanho dos ícones para se adequar ao header menor */
+}
+
+/* Remove a borda no botão ao passar o mouse */
+.nav-link:hover {
+    text-decoration: none;
+}
+
+/* header geral fim */
+/*Configuração do Usuario*/

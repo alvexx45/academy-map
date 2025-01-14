@@ -1,0 +1,170 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Elementos no topo */
+    min-height: 100vh; /* Tela cheia */
+    margin: 0;
+    background-color: #f0f0f0; /* Fundo neutro */
+    font-family: Arial, sans-serif;
+}
+
+/* Container principal */
+.container {
+    margin-left: 10px;
+    max-width: 600px;
+    padding: 20px;
+    float: left; /* Alinha à esquerda */
+}
+
+/* Evaluation container */
+.evaluation-container {
+    margin-left: 20px;
+    margin-top: 50px; /* Espaçamento maior para descer a avaliação */
+    max-width: 400px;
+    padding: 0; /* Sem preenchimento interno */
+    float: left; /* Alinha naturalmente à direita */
+    text-align: left;
+}
+
+/* Estilo para imagem do perfil */
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Bordas arredondadas */
+    max-width: 480px;
+    display: block;
+    margin: 0 0 20px 0; /* Espaçamento abaixo */
+}
+
+/* Detalhes do usuário */
+.details {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Botão de avaliação por estrelas */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px; /* Espaçamento entre as estrelas */
+    justify-content: center; /* Centraliza horizontalmente */
+    margin-top: 20px;
+}
+
+.star-rating input {
+    display: none; /* Esconde o input original */
+}
+
+.star-rating label {
+    font-size: 40px; /* Tamanho das estrelas */
+    color: #ddd; /* Cor padrão das estrelas */
+    cursor: pointer; /* Aponta como botão */
+    transition: color 0.2s, transform 0.2s; /* Efeito de interação */
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffd700; /* Cor dourada para seleção e hover */
+    transform: scale(1.2); /* Amplia levemente no hover */
+}
+
+/* Botão de submissão */
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    display: block; /* Fica sozinho na linha */
+    margin: 20px auto; /* Centraliza horizontalmente */
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Contêiner de comentários */
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.comment-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+button{
+    border: none;
+    padding: 5px 10px; /* Tamanho do botão */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer;
+    font-size: 14px; /* Tamanho da fonte */
+    background: #ffd700;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container, .evaluation-container {
+        float: none;
+        margin: 0 auto;
+        max-width: 90%;
+    }
+
+    body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .evaluation-container {
+        margin-top: 30px; /* Ajusta no mobile */
+    }
+}
+/* Estilo para lista de avaliações */
+#avaliacoes-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os comentários */
+}
+
+/* Caixa individual de comentário */
+.evaluation-item {
+    background-color: white; /* Fundo branco */
+    padding: 15px; /* Espaço interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    font-size: 14px; /* Tamanho de texto padrão */
+    color: #333; /* Texto em cor escura */
+}
+
+/* Cabeçalho do comentário */
+.evaluation-header {
+    display: flex;
+    justify-content: space-between; /* Distribui o conteúdo */
+    align-items: center; /* Alinha verticalmente */
+    margin-bottom: 10px; /* Espaço abaixo do cabeçalho */
+}
+
+.evaluation-stars {
+    font-size: 16px; /* Tamanho das estrelas */
+    color: #ffd700; /* Cor dourada */
+}
+
+/* Corpo do comentário */
+.evaluation-comment {
+    font-size: 14px; /* Tamanho do texto */
+    line-height: 1.5; /* Espaçamento entre linhas */
+    color: #555; /* Cor suave para texto */
+}
+

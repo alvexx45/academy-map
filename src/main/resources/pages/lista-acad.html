@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Academias</title>
+    <link rel="stylesheet" href="../css/lista.css">
+   
+</head>
+
+<body>
+    <button id="painel-cliente" onclick="window.location.href='/painel-cliente'">Conta</button>
+    <button id="favs" onclick="window.location.href='/favs'">Favoritos</button>
+    <button id="logout" onclick="window.location.href='/logout'">Logout</button>
+
+    <header></header>
+    <table>
+        <thead>
+            <tr>
+                <th>Foto de Perfil</th>
+                <th>Nome</th>
+                <th>Localização</th>
+                <th>Preço por Aula</th>
+            </tr>
+        </thead>
+        <tbody id="academias-table-body"></tbody>
+    </table>
+
+    <script>
+        fetch('/api/academias')
+            .then(response => response.json())
+            .then(academias => {
+                const tableBody = document.getElementById('academias-table-body');
+                academias.forEach(academy => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><img src="${academy.fotoPerfil || 'default-image-path.jpg'}" alt="Foto de Perfil"></td>
+                        <td>${academy.nomeAcademia || 'N/A'}</td>
+                        <td>${academy.localizacao || 'N/A'}</td>
+                        <td>${academy.precoAula || 'N/A'}</td>
+                    `;
+                    row.addEventListener('click', () => {
+                        window.location.href = `/detalhes?id=${academy.idAcademia}`;
+                    });
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const tableBody = document.getElementById('academias-table-body');
+                tableBody.innerHTML = '<tr><td colspan="4">Falha ao carregar os dados das academias.</td></tr>';
+            });
+    </script>
+</body>
+
+</html>

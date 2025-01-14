@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Dados do Cliente</title>
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+
+<body>
+    <div class="container">
+        <form id="edit-cliente-form">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required><br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required><br>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+
+    <script>
+        function fetchClienteLogado() {
+            fetch('/api/cliente-logado')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao buscar dados do cliente");
+                    }
+                    return response.json();
+                })
+                .then(cliente => {
+                    document.getElementById('nome').value = cliente.nome;
+                    document.getElementById('email').value = cliente.email;
+                    document.getElementById('cpf').value = cliente.cpf;
+                    document.getElementById('senha').value = cliente.senha;
+                })
+                .catch(error => {
+                    console.error("Erro:", error);
+                });
+        }
+
+        document.getElementById('edit-cliente-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const clienteData = {
+                nome: formData.get('nome'),
+                email: formData.get('email'),
+                cpf: formData.get('cpf'),
+                senha: formData.get('senha')
+            };
+
+            fetch('/api/atualizar-cliente', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(clienteData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = "/painel-cliente";
+                } else {
+                    alert("Erro ao atualizar cliente");
+                }
+            })
+            .catch(error => {
+                console.error("Erro:", error);
+            });
+        });
+
+        window.onload = fetchClienteLogado;
+    </script>
+</body>
+
+</html>

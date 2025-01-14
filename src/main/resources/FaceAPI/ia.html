@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Academia</title>
+    <script defer src="face-api.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <video id="video" width="640" height="480" autoplay muted></video>
+
+    <div id="ficha-container" style="display: none;">
+        <h2>Academy Maps - Ficha de Academia</h2>
+        <div id="ficha-content"></div>
+    </div>
+    <a href="/painel-cliente">
+        <button class="ia-button">Voltar</button>
+    </a>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .ia-button {
+            background: linear-gradient(135deg, #175cc4,#175cc4);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            width: 150px;
+            margin: 20px auto;
+        }
+
+        
+        .ia-button:hover {
+            background: linear-gradient(135deg, #053172, #053172);
+            transform: scale(1.05);
+        }
+
+        canvas {
+            position: absolute;
+        }
+
+        #ficha-container {
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #003366;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #ficha-content {
+            margin-bottom: 20px;
+        }
+    </style>
+</body>
+
+</html>

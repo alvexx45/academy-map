@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/main/resources/css/styles.css">
+    <title>Realizar Pagamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #EDEDED; /* Fundo claro */
+            color: #11296B; /* Texto principal */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #00509D; /* Azul mais escuro */
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #FFDB57; /* Amarelo claro */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        button {
+            background-color: #11296B; /* Azul escuro */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #00509D; /* Azul intermediário */
+        }
+        #responseMessage {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #11296B; /* Azul escuro */
+        }
+    </style>
+</head>
+<body>
+    <h1>Simular Pagamento</h1>
+
+    <form id="paymentForm" action="/pagamento" method="POST">
+        <button type="submit">Pagar e Destacar Academia</button>
+    </form>
+
+    <div id="responseMessage"></div>
+
+    <script>
+        document.getElementById("paymentForm").onsubmit = function(event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
+
+            fetch('/pagamento', {
+                method: 'POST',
+                credentials: 'include' // Inclui cookies para a sessão
+            })
+            .then(response => {
+                return response.text(); // Lê a resposta como texto
+            })
+            .then(data => {
+                document.getElementById("responseMessage").innerText = data; // Exibe a mensagem de resposta
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                document.getElementById("responseMessage").innerText = "Erro ao processar pagamento.";
+            });
+        };
+    </script>
+</body>
+</html>

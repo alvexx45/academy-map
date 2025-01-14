@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Cliente</title>
+    <link rel="stylesheet" href="../css/painel.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Olá, <span id="nome-cliente">Cliente</span>!</h1>
+    </div>
+    <div class="button-container">
+        <!--novo-->
+        <div class="instrucoes">
+            Para melhorar sua experiência, nosso site disponibiliza uma ficha de academia base. Porém, sugerimos que
+            você procure um profissional para adaptar a ficha às suas necessidades, especialmente se tiver lesões ou
+            condições atípicas.
+        </div>
+        
+        <div class="aviso">
+            Atenção: Ao apertar este botão, você concorda que sua câmera será aberta para o funcionamento ideal da IA.
+        </div>
+
+        <button class="btn" onclick="window.location.href='../FaceAPI/ia.html'">Ficha Base</button>
+
+
+        <!--fim-->
+        <button id="lista-acad" class="btn" onclick="window.location.href='/lista-acad'">Academias</button>
+        <button id="editar-dados" class="btn" onclick="window.location.href='/edit-cliente'">Editar Dados</button>
+        <button id="historico" class="btn" onclick="window.location.href='/historico'">Histórico</button>
+        <button id="excluir-conta" class="btn" onclick="confirmarExclusao()">Excluir Conta</button>
+        <button id="logout" class="btn" onclick="window.location.href='/logout'">Logout</button>
+
+
+    </div>
+    <script>
+        function confirmarExclusao() {
+            if (confirm("Tem certeza de que deseja excluir sua conta? Essa ação não pode ser desfeita.")) {
+                excluirConta();
+            }
+        }
+
+        function excluirConta() {
+            fetch('/api/excluir-cliente', {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Conta excluída com sucesso!");
+                        window.location.href = "/"; // Redireciona para a página inicial após exclusão
+                    } else {
+                        alert("Erro ao excluir a conta.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro:", error);
+                });
+        }
+
+        function fetchClienteLogado() {
+            fetch('/api/cliente-logado')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao buscar dados do cliente logado");
+                    }
+                    return response.json();
+                })
+                .then(cliente => {
+                    document.getElementById('nome-cliente').textContent = cliente.nome;
+                })
+                .catch(error => {
+                    console.error("Erro:", error);
+                });
+        }
+
+        window.onload = fetchClienteLogado;
+    </script>
+</body>
+
+</html>

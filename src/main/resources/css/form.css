@@ -1,0 +1,102 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilo para o body */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    font-size: 1px;
+    color: #333;
+}
+h1 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+/* Cabeçalho */
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Estilo principal dos formulários */
+form {
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Aumentado para mais largura */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Reduzido para menor espaçamento vertical */
+}
+
+/* Labels */
+label {
+    font-size: 12px;
+    color: #555;
+}
+
+/* Campos de entrada */
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="file"], 
+
+textarea {
+    width: 100%;
+    padding: 8px; /* Reduzido para menor altura */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 3px rgba(52, 152, 219, 0.4);
+}
+
+/* Botão de envio */
+button, input[type="submit"] {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px; /* Ajustado para altura menor */
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background: #2980b9;
+}
+
+button:active, input[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    form {
+        max-width: 100%;
+        padding: 15px;
+    }
+}

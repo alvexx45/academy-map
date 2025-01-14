@@ -1,0 +1,91 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EDEDED; /* Cor de fundo */
+    color: #11296B; /* Cor do texto */
+    margin: 0;
+    padding: 20px;
+}
+
+.aviso {
+    font-size: 14px;
+    color: #f44336;
+    margin-top: 10px;
+}
+
+
+.instrucoes {
+    max-width: 600px;
+    background-color: lightgrey;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.btn-ia {
+    text-decoration: none;
+}
+
+.btn {
+    max-width: 200px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #FFFFFF; /* Fundo branco para o container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 8px; /* Bordas arredondadas */
+    text-align: center; /* Centralizar texto */
+}
+
+h1 {
+    color: #00509D; /* Título em azul */
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Alinhamento vertical */
+    align-items: center; /* Centraliza os botões */
+}
+
+button {
+    display: block;
+    width: 100%;
+    max-width: 200px; /* Limite de largura dos botões */
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #FFFFFF; /* Texto branco */
+    background-color: #FFCB05; /* Cor de fundo do botão */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transição suave */
+}
+
+button:hover {
+    background-color: #FFC200; /* Cor ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+}
+
+button#excluir-conta {
+    background-color: #ff4d4d; /* Vermelho para excluir */
+}
+
+button#excluir-conta:hover {
+    background-color: #ff1a1a; /* Tom mais escuro ao passar o mouse */
+}
+
+#foto-perfil {
+    border: 2px solid #00509D; /* Borda azul */
+    border-radius: 75px; /* Borda arredondada */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin: 20px 0; /* Espaçamento em cima e embaixo */
+}
